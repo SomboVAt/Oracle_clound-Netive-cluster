@@ -1,0 +1,27 @@
+oci_profile_name = "DEFAULT"
+tenancy_ocid     = "ocid1.tenancy.oc1..replace-me"
+compartment_ocid = "ocid1.compartment.oc1..replace-me"
+region           = "replace-with-oci-region"
+home_region      = "replace-with-tenancy-home-region"
+
+vcn_ocid = "ocid1.vcn.oc1..replace-me"
+subnets = {
+  cp      = { id = "ocid1.subnet.oc1..private-api-subnet" }
+  workers = { id = "ocid1.subnet.oc1..private-worker-subnet" }
+  int_lb  = { id = "ocid1.subnet.oc1..private-internal-lb-subnet" }
+}
+
+control_plane_allowed_cidrs = ["198.51.100.10/32"] # Replace with approved admin/VPN CIDRs.
+kubernetes_version          = "v1.36.1"            # Confirm current OKE regional support before use.
+worker_placement_ads        = [1, 2, 3]              # Replace with AD numbers available in your region.
+worker_count                = 3
+worker_shape                = "VM.Standard.E6.Flex"
+worker_ocpus                = 8
+worker_memory_gb            = 64
+worker_boot_volume_gb       = 150
+worker_os_version           = "8" # Select only an OKE-supported image certified by your application vendor.
+environment                 = "production"
+
+# Optional: set approved customer-managed KMS key OCIDs before production deployment.
+cluster_kms_key_ocid       = ""
+worker_volume_kms_key_ocid = ""
