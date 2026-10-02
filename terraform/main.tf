@@ -1,4 +1,5 @@
 module "oke" {
+  count  = var.deploy_oke ? 1 : 0
   source = "git::https://github.com/oracle-terraform-modules/terraform-oci-oke.git?ref=v5.5.1"
 
   providers = {

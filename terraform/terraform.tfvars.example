@@ -1,3 +1,6 @@
+# Set to false when validating syntax locally without OCI tenancy access.
+deploy_oke = true
+
 oci_profile_name = "DEFAULT"
 tenancy_ocid     = "ocid1.tenancy.oc1..replace-me"
 compartment_ocid = "ocid1.compartment.oc1..replace-me"

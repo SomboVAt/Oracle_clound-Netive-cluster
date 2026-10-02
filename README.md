@@ -23,10 +23,13 @@ The [`terraform/`](terraform/) directory uses Oracle's maintained OKE Terraform 
 
 Prerequisites: Terraform 1.5 or newer, an OCI CLI profile configured on the deployment workstation, IAM permissions for the target compartment, an approved VCN with private `cp`, `workers`, and `int_lb` subnets, valid regional availability-domain numbers, and approved administrator CIDRs. The profile and `terraform.tfvars` contain environment-specific values; never commit credentials, state, plans, or real `.tfvars` files.
 
+If you do not have OCI access for testing, set `deploy_oke = false` in `terraform.tfvars` (or pass `-var='deploy_oke=false'`) to skip the OCI module while still validating Terraform syntax and variable handling.
+
 ```bash
 cd terraform
 cp terraform.tfvars.example terraform.tfvars
 # Edit terraform.tfvars with real OCIDs, region, subnets, CIDRs, and AD numbers.
+# For a local-only syntax check without OCI credentials, set deploy_oke = false.
 terraform init
 terraform fmt -check
 terraform validate
