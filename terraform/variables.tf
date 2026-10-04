@@ -97,11 +97,11 @@ variable "cluster_name" {
 variable "kubernetes_version" {
   description = "OKE-supported Kubernetes version available in the selected region."
   type        = string
-  default     = "v1.36.1"
+  default     = "v1.36.4"
 
   validation {
     condition     = var.deploy_oke == false || can(regex("^v[0-9]+\\.[0-9]+\\.[0-9]+$", var.kubernetes_version))
-    error_message = "Use a full Kubernetes version such as v1.36.1, after confirming OKE offers it in the selected region."
+    error_message = "Use a full Kubernetes version such as v1.36.4, after confirming OKE offers it in the selected region."
   }
 }
 
